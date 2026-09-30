@@ -1,0 +1,672 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #050505;
+  color: #f5f5f5;
+}
+
+button {
+  font-family: inherit;
+}
+
+.app {
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at 50% 15%,
+      rgba(255, 255, 255, 0.09),
+      transparent 35%
+    ),
+    #050505;
+  overflow: hidden;
+  position: relative;
+}
+
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.background-lines {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  background:
+    repeating-radial-gradient(
+      ellipse at 50% 35%,
+      transparent 0,
+      transparent 60px,
+      rgba(255, 255, 255, 0.08) 61px,
+      transparent 62px
+    );
+  mask-image: linear-gradient(
+    to bottom,
+    black,
+    transparent 75%
+  );
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  height: 76px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 4%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  background: rgba(5, 5, 5, 0.78);
+  backdrop-filter: blur(18px);
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.logo span {
+  color: #aaa;
+}
+
+.logo-mark {
+  color: white !important;
+  font-size: 25px;
+  margin-right: 8px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 38px;
+}
+
+.nav-links a {
+  color: #aaa;
+  text-decoration: none;
+  font-size: 13px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: white;
+}
+
+.nav-button,
+.primary-button,
+.secondary-button {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: transparent;
+  color: white;
+  padding: 13px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nav-button:hover,
+.primary-button:hover {
+  background: white;
+  color: black;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  min-height: 650px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  padding: 100px 7%;
+}
+
+.hero-content {
+  width: 55%;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-badge {
+  display: inline-block;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 30px;
+
+  padding: 9px 15px;
+
+  font-size: 11px;
+  letter-spacing: 2px;
+
+  color: #bbb;
+
+  margin-bottom: 25px;
+}
+
+.hero h1 {
+  font-size: clamp(50px, 7vw, 95px);
+  line-height: 0.95;
+
+  letter-spacing: -5px;
+
+  margin: 0;
+}
+
+.hero h1 span {
+  color: #777;
+}
+
+.hero p {
+  max-width: 560px;
+
+  color: #aaa;
+
+  font-size: 17px;
+  line-height: 1.7;
+
+  margin: 30px 0;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.primary-button {
+  background: white;
+  color: black;
+}
+
+.secondary-button {
+  color: #ddd;
+}
+
+
+/* =========================
+   HERO ORBITS
+========================= */
+
+.hero-orbit {
+  width: 500px;
+  height: 500px;
+
+  position: absolute;
+  right: 4%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.orbit {
+  position: absolute;
+
+  border: 1px solid rgba(255, 255, 255, 0.17);
+
+  border-radius: 50%;
+
+  transform: rotate(-25deg);
+}
+
+.orbit-one {
+  width: 450px;
+  height: 180px;
+}
+
+.orbit-two {
+  width: 390px;
+  height: 300px;
+}
+
+.orbit-three {
+  width: 250px;
+  height: 450px;
+}
+
+.hero-core {
+  width: 130px;
+  height: 130px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    white 0,
+    #aaa 5%,
+    #222 30%,
+    #050505 70%
+  );
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow:
+    0 0 60px rgba(255, 255, 255, 0.12),
+    inset 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+.hero-core span {
+  font-size: 12px;
+  letter-spacing: 3px;
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+
+  margin: 0 4%;
+}
+
+.stats div {
+  padding: 28px;
+
+  border-right: 1px solid rgba(255, 255, 255, 0.13);
+
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.stats div:last-child {
+  border-right: none;
+}
+
+.stats strong {
+  font-size: 25px;
+}
+
+.stats span {
+  font-size: 10px;
+  color: #777;
+  letter-spacing: 2px;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+  padding: 120px 6%;
+  position: relative;
+  z-index: 2;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+
+  margin-bottom: 50px;
+}
+
+.section-label {
+  color: #777;
+
+  font-size: 11px;
+
+  letter-spacing: 3px;
+}
+
+.section-heading h2 {
+  font-size: 50px;
+  margin: 12px 0 0;
+
+  letter-spacing: -2px;
+}
+
+.section-heading p {
+  max-width: 350px;
+
+  color: #888;
+
+  line-height: 1.6;
+}
+
+
+/* =========================
+   PRODUCT GRID
+========================= */
+
+.product-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(250px, 1fr));
+
+  gap: 18px;
+}
+
+
+/* =========================
+   PRODUCT CARD
+========================= */
+
+.product-card {
+  background: rgba(255, 255, 255, 0.035);
+
+  border: 1px solid rgba(255, 255, 255, 0.13);
+
+  transition:
+    transform 0.35s,
+    border-color 0.35s,
+    background 0.35s;
+
+  overflow: hidden;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+
+  border-color: rgba(255, 255, 255, 0.45);
+
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.image-container {
+  height: 230px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  background: #111;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform 0.5s;
+}
+
+.product-card:hover .image-container img {
+  transform: scale(1.07);
+}
+
+.rank {
+  position: absolute;
+
+  top: 15px;
+  left: 15px;
+
+  background: rgba(0, 0, 0, 0.7);
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  padding: 8px 11px;
+
+  font-size: 11px;
+}
+
+.product-info {
+  padding: 22px;
+}
+
+.product-id {
+  color: #666;
+
+  font-size: 10px;
+
+  letter-spacing: 2px;
+}
+
+.product-info h3 {
+  font-size: 18px;
+
+  min-height: 45px;
+
+  margin: 12px 0 22px;
+}
+
+.product-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  padding-top: 18px;
+}
+
+.product-bottom strong {
+  font-size: 18px;
+}
+
+.product-bottom button {
+  background: transparent;
+  color: #aaa;
+
+  border: none;
+
+  cursor: pointer;
+
+  font-size: 11px;
+
+  letter-spacing: 1px;
+
+  transition: 0.3s;
+}
+
+.product-bottom button:hover {
+  color: white;
+}
+
+
+/* =========================
+   RECENT
+========================= */
+
+.recent-section {
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.recent-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(300px, 1fr));
+
+  gap: 12px;
+}
+
+.recent-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  padding: 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.recent-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.recent-card img {
+  width: 75px;
+  height: 65px;
+
+  object-fit: cover;
+}
+
+.recent-card div {
+  flex: 1;
+}
+
+.recent-card span {
+  font-size: 9px;
+
+  letter-spacing: 2px;
+
+  color: #666;
+}
+
+.recent-card h3 {
+  font-size: 14px;
+
+  margin: 8px 0 0;
+}
+
+.recent-card strong {
+  color: #777;
+
+  font-size: 20px;
+}
+
+
+/* =========================
+   EMPTY
+========================= */
+
+.empty {
+  width: 100%;
+
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+
+  padding: 40px;
+
+  color: #666;
+
+  text-align: center;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+
+  padding: 40px 6%;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+footer p {
+  color: #666;
+
+  font-size: 12px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+  .nav-links {
+    display: none;
+  }
+
+  .hero {
+    min-height: 700px;
+  }
+
+  .hero-content {
+    width: 100%;
+  }
+
+  .hero-orbit {
+    opacity: 0.25;
+
+    right: -150px;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stats div:nth-child(2) {
+    border-right: none;
+  }
+
+  .section-heading {
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .hero {
+    padding: 80px 6%;
+  }
+
+  .hero h1 {
+    font-size: 55px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .stats div {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .section {
+    padding: 80px 5%;
+  }
+
+  .section-heading h2 {
+    font-size: 38px;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 20px;
+    align-items: start;
+  }
+}
